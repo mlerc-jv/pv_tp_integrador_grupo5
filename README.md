@@ -1,16 +1,23 @@
-# React + Vite
+# TRABAJO INTEGRADOR FINAL - PROGRAMACION VISUAL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GRUPO 5 | COMISION 2
 
-Currently, two official plugins are available:
+Integrantes:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+-ARAMAYO PAREDES, Lourdes Daniela - ( @luxi777 )
 
-## React Compiler
+-CABRERA, Maia Luisana - ( @lucabrera565 )
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-CARRILLO, Marianela Valentina Abril - ( @abrilcarrillo )
 
-## Expanding the ESLint configuration
+-MAIDANA, Antonella Mariel - ( @antoto17 )
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-MERUVIA, Jimena Virginia - ( @mlerc-jv )
+
+-QUISPE MOLLOJA, Guadalupe Belen - ( @Guada-q )
+
+## Descripcion TP Integrador - 2026
+
+Este proyecto consiste en la construccion de un Panel de Control de Clientes utilizando React y Vite. Esta aplicacion permite la gestion y visualizacion de informacion de clientes a traves del consumo de datos de la API pública FakeStoreAPI, ademas de la navegacion entre distintas vistas de forma dinamica.
+
+Se implementaran tecnologias como React Router Dom, Context API, LocalStorage, peticiones asincronicas y el uso de un framework de interfaz de usuario, para que la experiencia del usuario sea mas dinamica e interactiva.
