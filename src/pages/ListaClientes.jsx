@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import FormCliente from "../components/FormCliente";
 
 const ListaClientes = () => {
 
@@ -26,6 +27,9 @@ const ListaClientes = () => {
     return (
         <div>
             <h1>Clientes</h1>
+            
+            <FormCliente />
+            <hr />
 
             <input
                 type="text"
