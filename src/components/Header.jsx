@@ -18,9 +18,9 @@ const Header = () => {
             {
                 admin && (
                     <div className="usuario-header">
-                        <p>
-                            {admin.nombre} - {admin.sector}
-                        </p>
+                       <p>
+                         {admin.nombre} - {admin.sector}
+                     </p>
                         <Button
                          
                           onClick={manejarCerrarSesion}
