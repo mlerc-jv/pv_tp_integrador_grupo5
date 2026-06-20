@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useAutorizaciones from '../hooks/useAutorizaciones'
+import AutorizacionesService from '../services/autorizacionesServices'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -37,9 +38,19 @@ const Login = () => {
   const manejarSubmit = (e) => {
     e.preventDefault()
     if (!validar()) return
-    setAdmin({
+    const usuario = AutorizacionesService.login(
       email,
+      password,
       sector
+    )
+    if (!usuario) {
+     alert('Verifique los datos')
+      return
+    }
+    setAdmin({
+      nombre: usuario.nombre,
+      email: usuario.email,
+      sector: usuario.sector
     })
     navigate('/')
   }
