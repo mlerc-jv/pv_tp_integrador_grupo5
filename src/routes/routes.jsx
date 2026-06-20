@@ -1,12 +1,13 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Login from '../pages/Login'
-import Dashboard from '../pages/Dashboard'
-import ErrorPage from '../pages/ErrorPage'
-import useAutorizaciones from '../hooks/useAutorizaciones'
-import ListaClientes from '../pages/ListaClientes'
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
+import ErrorPage from "../pages/ErrorPage";
+import ListaClientes from "../pages/ListaClientes";
+import DetalleCliente from "../pages/DetalleCliente";
+import useAutorizaciones from "../hooks/useAutorizaciones";
 
 const AppRoutes = () => {
-  const { admin } = useAutorizaciones()
+  const { admin } = useAutorizaciones();
 
   return (
     <Routes>
@@ -20,7 +21,8 @@ const AppRoutes = () => {
             : <Navigate to="/login" />
         }
       />
-           <Route
+
+      <Route
         path="/clientes"
         element={
           admin
@@ -28,9 +30,19 @@ const AppRoutes = () => {
             : <Navigate to="/login" />
         }
       />
+
+      <Route
+        path="/clientes/:id"
+        element={
+          admin
+            ? <DetalleCliente />
+            : <Navigate to="/login" />
+        }
+      />
+
       <Route path="*" element={<ErrorPage />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRoutes
+export default AppRoutes;
