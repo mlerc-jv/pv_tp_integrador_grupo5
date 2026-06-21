@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import ListaClientes from '../pages/ListaClientes'
+import DetalleCliente from '../pages/DetalleCliente'
 import ErrorPage from '../pages/ErrorPage'
 import RutaProtegida from '../components/RutaProtegida'
 const AppRoutes = () => {
@@ -25,6 +26,14 @@ const AppRoutes = () => {
             <ListaClientes />
           </RutaProtegida>
         }
+      />
+      <Route
+        path="/clientes/:id"
+        element={
+         <RutaProtegida>
+          <DetalleCliente />
+         </RutaProtegida>
+      }
       />
       <Route path="*" element={<ErrorPage />} />
 
