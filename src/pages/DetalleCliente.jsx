@@ -1,16 +1,44 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
+import { useParams, useNavigate } from "react-router-dom";
+ 
 const DetalleCliente = () => {
+  console.log("ENTRO AL DETALLE CLIENTE");
+
   const { id } = useParams();
+  const navigate = useNavigate();
+  const role = localStorage.getItem("role");
 
   const [cliente, setCliente] = useState(null);
+  const [mensaje, setMensaje] = useState("");
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/users/${id}`)
       .then((res) => res.json())
       .then((data) => setCliente(data));
   }, [id]);
+
+  const eliminarCliente = async () => {
+    try {
+      const respuesta = await fetch(
+        `https://fakestoreapi.com/users/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (respuesta.ok) {
+        setMensaje("Cliente eliminado correctamente");
+
+        setTimeout(() => {
+          navigate("/clientes");
+        }, 2000);
+      }
+    } catch (error) {
+      setMensaje("Error al eliminar cliente");
+    }
+  };
+
+  console.log("ROLE EN COMPONENTE:", role);
 
   if (!cliente) {
     return <h2>Cargando cliente...</h2>;
@@ -19,6 +47,9 @@ const DetalleCliente = () => {
   return (
     <div>
       <h1>Ficha del Cliente</h1>
+      <p>Rol actual: {role}</p>
+
+      {mensaje && <p>{mensaje}</p>}
 
       <p>
         <strong>ID:</strong> {cliente.id}
@@ -64,6 +95,12 @@ const DetalleCliente = () => {
       <p>
         <strong>Contraseña:</strong> {cliente.password}
       </p>
+
+      {role?.trim() === "Gerencia" && (
+        <button onClick={eliminarCliente}>
+          Eliminar Cliente
+        </button>
+      )}
     </div>
   );
 };

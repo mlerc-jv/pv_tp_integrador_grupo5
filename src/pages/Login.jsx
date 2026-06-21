@@ -47,6 +47,7 @@ const Login = () => {
      alert('Verifique los datos')
       return
     }
+    localStorage.setItem("role", usuario.sector)
     setAdmin({
       nombre: usuario.nombre,
       email: usuario.email,
