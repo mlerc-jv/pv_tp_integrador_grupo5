@@ -10,39 +10,39 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(false);
 
 useEffect(() => {
-fetch("https://fakestoreapi.com/users")
-.then((res) => {
-if (!res.ok) {
-throw new Error("Error al obtener clientes");
-}
-return res.json();
-})
-.then((data) => {
-setClientes(data);
-setLoading(false);
-})
-.catch(() => {
-setError(true);
-setLoading(false);
-});
+  fetch("https://fakestoreapi.com/users")
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error("Error al obtener clientes");
+    }
+    return res.json();
+  })
+  .then((data) => {
+    setClientes(data);
+    setLoading(false);
+  })
+  .catch(() => {
+    setError(true);
+    setLoading(false);
+  });
 }, []);
 
 const clientesFiltrados = clientes.filter(
-(cliente) =>
-cliente.name.lastname
-.toLowerCase()
-.includes(busqueda.toLowerCase()) ||
-cliente.address.city
-.toLowerCase()
-.includes(busqueda.toLowerCase())
+  (cliente) =>
+    cliente.name.lastname
+  .toLowerCase()
+  .includes(busqueda.toLowerCase()) ||
+  cliente.address.city
+  .toLowerCase()
+  .includes(busqueda.toLowerCase())
 );
 
 if (loading) {
-return <h2>Cargando clientes...</h2>;
+  return <h2>Cargando clientes...</h2>;
 }
 
 if (error) {
-return <h2>Error al cargar los clientes.</h2>;
+  return <h2>Error al cargar los clientes.</h2>;
 }
 
 return ( 
