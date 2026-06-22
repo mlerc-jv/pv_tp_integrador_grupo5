@@ -1,10 +1,9 @@
+import '../css/detallecliente.css'
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
  
 const DetalleCliente = () => {
-  console.log("ENTRO AL DETALLE CLIENTE");
-
-  const { id } = useParams();
+ const { id } = useParams();
   const navigate = useNavigate();
   const role = localStorage.getItem("role");
 
@@ -37,19 +36,16 @@ const DetalleCliente = () => {
       setMensaje("Error al eliminar cliente");
     }
   };
-
-  console.log("ROLE EN COMPONENTE:", role);
-
   if (!cliente) {
     return <h2>Cargando cliente...</h2>;
   }
 
   return (
-    <div>
+    <div className="detalle-cliente">
       <h1>Ficha del Cliente</h1>
       <p>Rol actual: {role}</p>
 
-      {mensaje && <p>{mensaje}</p>}
+      {mensaje && <p className = 'mensaje-eliminado'>{mensaje}</p>}
 
       <p>
         <strong>ID:</strong> {cliente.id}
@@ -97,7 +93,7 @@ const DetalleCliente = () => {
       </p>
 
       {role?.trim() === "Gerencia" && (
-        <button onClick={eliminarCliente}>
+        <button className='btn-eliminar'onClick={eliminarCliente}>
           Eliminar Cliente
         </button>
       )}
