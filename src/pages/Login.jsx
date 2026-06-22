@@ -1,3 +1,4 @@
+import '../css/login.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useAutorizaciones from '../hooks/useAutorizaciones'
@@ -56,7 +57,7 @@ const Login = () => {
     navigate('/')
   }
   return (
-    <div style={{ padding: '20px', maxWidth: '400px' }}>
+    <div className="login-container">
       <h1>Iniciar Sesión</h1>
       <form onSubmit={manejarSubmit}>
         <label>Email:</label>

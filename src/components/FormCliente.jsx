@@ -1,3 +1,4 @@
+import '../css/formcliente.css'
 import { useState } from "react";
 import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import clientesService from "../services/clientesService";
@@ -86,7 +87,7 @@ const FormCliente = () => {
 
     return (
 
-        <>
+        <div className='formulario-cliente'>
 
             <h3>Nuevo Cliente</h3>
 
@@ -184,7 +185,7 @@ const FormCliente = () => {
                 </Alert>
             }
 
-        </>
+        </div>
 
     );
 };

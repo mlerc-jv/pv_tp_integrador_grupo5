@@ -1,3 +1,4 @@
+import '../css/header.css'
 import { Navbar, Container, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useAutorizaciones  from "../hooks/useAutorizaciones";
@@ -21,9 +22,8 @@ const Header = () => {
                        <p>
                          {admin.nombre} - {admin.sector}
                      </p>
-                        <Button
-                         
-                          onClick={manejarCerrarSesion}
+                        <Button className="btn-header"
+                         onClick={manejarCerrarSesion}
                         > Cerrar Sesion </Button>
                     </div>
                 )

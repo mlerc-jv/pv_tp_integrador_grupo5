@@ -1,3 +1,4 @@
+import '../css/nav.css'
 import { NavLink } from 'react-router-dom'
 const Nav = () => {
     return (
@@ -16,5 +17,6 @@ const Nav = () => {
             </ul>
         </nav>
     );
+    
 };
 export default Nav;
